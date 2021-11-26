@@ -1,12 +1,26 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:new_movie/profile.dart';
+import 'package:new_movie/settings.dart';
+import 'news.dart';
 
 void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   // This widget is the root of your application.
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  final pages = [
+    Profile(),
+    News(),
+    Settings(),
+  ];
+  var _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -27,206 +41,37 @@ class MyApp extends StatelessWidget {
           centerTitle: true,
           backgroundColor: Colors.cyan[600],
         ),
-        body: Container(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: ListView(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Container(
-                    height: 250,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10.0),
-                        color: Colors.cyan),
-                    child: Container(
-                      child: Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: FloatingActionButton(
-                                  onPressed: () {},
-                                  child: Text(
-                                    "News",
-                                    style: TextStyle(color: Colors.cyan),
-                                  ),
-                                  backgroundColor: Colors.white,
-                                ),
-                              ),
-                              //
-                              Padding(
-                                padding: const EdgeInsets.all(18.0),
-                                child: Text(
-                                  "Live Broadcast",
-                                  style:
-                                      TextStyle(fontSize: 19, letterSpacing: 4),
-                                ),
-                              ),
-                            ],
-                          ),
-                          Icon(
-                            Icons.radio,
-                            size: 44,
-                            color: Colors.white,
-                          ),
-                          SizedBox(
-                            height: 15,
-                          ),
-                          Text(
-                            "69.69 JOIN NOW!!!",
-                            style: TextStyle(fontSize: 14, letterSpacing: 4),
-                          ),
-                          SizedBox(
-                            height: 35,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              TextButton(
-                                onPressed: () {},
-                                child: Text(
-                                  "Archives",
-                                  style: TextStyle(
-                                      fontSize: 14,
-                                      letterSpacing: 3,
-                                      color: Colors.white,
-                                      backgroundColor: Colors.white30),
-                                ),
-                              ),
-                              TextButton(
-                                onPressed: () {},
-                                child: Text(
-                                  "Yesterday",
-                                  style: TextStyle(
-                                      fontSize: 14,
-                                      letterSpacing: 3,
-                                      color: Colors.white,
-                                      backgroundColor: Colors.white30),
-                                ),
-                              ),
-                              TextButton(
-                                onPressed: () {},
-                                child: Text(
-                                  "Weather",
-                                  style: TextStyle(
-                                      fontSize: 14,
-                                      letterSpacing: 3,
-                                      color: Colors.white,
-                                      backgroundColor: Colors.white30),
-                                ),
-                              ),
-                              TextButton(
-                                onPressed: () {},
-                                child: Text(
-                                  "Sports",
-                                  style: TextStyle(
-                                      fontSize: 14,
-                                      letterSpacing: 3,
-                                      color: Colors.white,
-                                      backgroundColor: Colors.white30),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Divider(
-                  height: 3,
-                  thickness: 2,
-                  color: Colors.black,
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                Container(
-                  height: 100,
-                  color: Colors.lime,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                        "The Dart language is type safe; it uses static type checking to ensure that a variable’s value always matches the variable’s static type. Sometimes, this is referred to as sound typing. Although types are mandatory"),
-                  ),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                Divider(
-                  height: 3,
-                  thickness: 2,
-                  color: Colors.black,
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(3.0),
-                    color: Colors.lime,
-                  ),
-                  height: 120,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text("Machine learning is the study of computer algorithms that can improve automatically through experience and by the use of data. It is seen as a part of artificial intelligence. Machine learning algorithms build a model based on sample data, known as training data, in order to make predictions or decisions without being explicitly programmed to do so"),
-                  ),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                Divider(
-                  height: 3,
-                  thickness: 2,
-                  color: Colors.black,
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                Container(
-                  height: 110,
-                  color: Colors.lime,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text("Data science is an interdisciplinary field that uses scientific methods, processes, algorithms and systems to extract knowledge and insights from noisy, structured and unstructured data, and apply knowledge and actionable insights from data across a broad range of application domains."),
-                  ),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                Divider(
-                  height: 3,
-                  thickness: 2,
-                  color: Colors.black,
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                Container(
-                  height: 100,
-                  color: Colors.lime,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text("Deep learning is part of a broader family of machine learning methods based on artificial neural networks with representation learning. Learning can be supervised, semi-supervised or unsupervised."),
-                  ),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                Divider(
-                  height: 3,
-                  thickness: 2,
-                  color: Colors.black,
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-              ],
+        bottomNavigationBar: BottomNavigationBar(
+          enableFeedback: true,
+          backgroundColor: Colors.cyan[600],
+          currentIndex: _currentIndex,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.account_box_outlined, color: Colors.black87,),
+              title: Text(
+                'Profile',
+                style: TextStyle(color: Colors.white, letterSpacing: 1, fontWeight: FontWeight.bold),
+              ),
             ),
-          ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.new_releases_sharp, color: Colors.black87,),
+              title: Text(
+                'News',
+                style: TextStyle(color: Colors.white, letterSpacing: 1, fontWeight: FontWeight.bold),
+              ),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings, color: Colors.black87,),
+              title: Text(
+                'Settings',
+                style: TextStyle(color: Colors.white, letterSpacing: 1, fontWeight: FontWeight.bold),
+              ),
+            ),
+          ],
+          onTap: (index) {
+            _currentIndex = index;
+            setState(() {});
+          },
         ),
         drawer: Drawer(
           elevation: 16,
@@ -310,6 +155,7 @@ class MyApp extends StatelessWidget {
             ],
           ),
         ),
+        body: pages[_currentIndex],
       ),
     );
   }
