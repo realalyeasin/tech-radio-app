@@ -1,3 +1,4 @@
+import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:new_movie/profile.dart';
@@ -41,37 +42,55 @@ class _MyAppState extends State<MyApp> {
           centerTitle: true,
           backgroundColor: Colors.cyan[600],
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          enableFeedback: true,
-          backgroundColor: Colors.cyan[600],
-          currentIndex: _currentIndex,
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.account_box_outlined, color: Colors.black87,),
-              title: Text(
-                'Profile',
-                style: TextStyle(color: Colors.white, letterSpacing: 1, fontWeight: FontWeight.bold),
-              ),
+        bottomNavigationBar: BottomNavyBar(
+          itemCornerRadius: 15,
+          backgroundColor: Colors.cyan[100],
+          curve: Curves.easeInCubic,
+          selectedIndex: _currentIndex,
+          onItemSelected: (_currentIndex) =>
+              setState(() => this._currentIndex = _currentIndex),
+          items: <BottomNavyBarItem>[
+            BottomNavyBarItem(
+                icon: Icon(Icons.account_box_outlined),
+                title: Text(
+                  'Profile',
+                  style: TextStyle(
+                      color: Colors.white,
+                      letterSpacing: 1,
+                      fontWeight: FontWeight.bold),
+                ),
+                textAlign: TextAlign.center,
+                activeColor: Colors.green,
+                inactiveColor: Colors.black
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.new_releases_sharp, color: Colors.black87,),
-              title: Text(
-                'News',
-                style: TextStyle(color: Colors.white, letterSpacing: 1, fontWeight: FontWeight.bold),
-              ),
+            BottomNavyBarItem(
+                icon: Icon(Icons.new_releases),
+                title: Text(
+                  'News',
+                  style: TextStyle(
+                      color: Colors.white,
+                      letterSpacing: 1,
+                      fontWeight: FontWeight.bold),
+                ),
+                textAlign: TextAlign.center,
+                activeColor: Colors.green,
+                inactiveColor: Colors.black
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.settings, color: Colors.black87,),
-              title: Text(
-                'Settings',
-                style: TextStyle(color: Colors.white, letterSpacing: 1, fontWeight: FontWeight.bold),
-              ),
+            BottomNavyBarItem(
+                icon: Icon(Icons.settings),
+                title: Text(
+                  'Settings',
+                  style: TextStyle(
+                      color: Colors.white,
+                      letterSpacing: 1,
+                      fontWeight: FontWeight.bold),
+                ),
+                textAlign: TextAlign.center,
+                activeColor: Colors.green,
+                inactiveColor: Colors.black
             ),
+
           ],
-          onTap: (index) {
-            _currentIndex = index;
-            setState(() {});
-          },
         ),
         drawer: Drawer(
           elevation: 16,
